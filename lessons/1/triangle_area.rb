@@ -11,14 +11,14 @@ class TriangleArea
     protected
 
     def ask_base
-      while should_be_only_digits(self.triangle_base) || should_be_positive(self.triangle_base)
+      while value_is_not_only_digits?(self.triangle_base) || value_is_negative_or_zero?(self.triangle_base)
         print_message(0)
         self.triangle_base = gets.chop
       end
     end
 
     def ask_height
-      while should_be_only_digits(self.triangle_height) || should_be_positive(self.triangle_height)
+      while value_is_not_only_digits?(self.triangle_height) || value_is_negative_or_zero?(self.triangle_height)
         print_message(1)
         self.triangle_height = gets.chop
       end
@@ -29,12 +29,12 @@ class TriangleArea
       print_message(2)
     end
 
-    def should_be_only_digits(user_asnwer)
-      /^[0-9]*$/.match(user_asnwer).nil?
+    def value_is_not_only_digits?(user_answer)
+      /^[0-9]*$/.match(user_answer).nil?
     end
 
-    def should_be_positive(user_asnwer)
-      user_asnwer.to_i <= 0
+    def value_is_negative_or_zero?(user_answer)
+      user_answer.to_i <= 0
     end
 
     def calculate_triangle_area
