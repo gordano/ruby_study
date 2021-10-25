@@ -62,7 +62,7 @@ class QuadraticEquation
     def messages(message_index)
       case message_index
       when 0 then "---------\n No Square root at all"
-      when 1 then "---------\n Square root are: #{self.square_roots.uniq.join(' ,')}"
+      when 1 then "---------\n Square roots are: #{self.square_roots.uniq.join(' ,')}"
       else "Please enter value for variable: #{message_index} (digits only)"
       end
     end
