@@ -11,14 +11,14 @@ class PerfectWeight
     protected
 
     def ask_name
-      while name_should_be_only_letters.nil?
+      while name_should_be_only_letters
         print_message(0)
         self.user_name = gets.chop
       end
     end
 
     def ask_height
-      while height_should_be_only_digits.nil?
+      while height_should_be_only_digits
         print_message(1)
         self.user_height = gets.chop
       end
@@ -30,11 +30,11 @@ class PerfectWeight
     end
 
     def height_should_be_only_digits
-      /^[0-9]*$/.match(self.user_height)
+      /^[0-9]*$/.match(self.user_height).nil?
     end
 
     def name_should_be_only_letters
-      /^[a-zA-Z]*$/.match(self.user_name)
+      /^[a-zA-Z]*$/.match(self.user_name).nil?
     end
 
     def calculate_weight
@@ -43,8 +43,8 @@ class PerfectWeight
 
     def messages(message_index)
       case message_index
-      when 0 then 'Please inter your Name (letters only):'
-      when 1 then 'Please inter your Height (digits only):'
+      when 0 then 'Please enter your Name (letters only):'
+      when 1 then 'Please enter your Height (digits only):'
       when 2 then "---------\n Congratulations! You weight is almost perfect."
       when 3 then "---------\n #{self.user_name.capitalize} your perfect weight is: #{self.user_weight_index}"
       else 'Oops'
