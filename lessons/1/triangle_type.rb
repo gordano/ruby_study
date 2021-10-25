@@ -5,7 +5,6 @@ class TriangleType
     def call
       set_initial_data_sides
       ask_sides_value
-      sort_sides_values
       show_type_of_triangle
     end
 
@@ -24,16 +23,16 @@ class TriangleType
       end
     end
 
-    def transform_triangle_data
-      self.transform_triangle_data ||= self.triangle_data.map {|_key,value| value.to_f}.sort
-    end
-
     def show_type_of_triangle
       return print_message(0) if self.transform_triangle_data.uniq.size.eql? 2
       return print_message(1) if self.transform_triangle_data.uniq.size.eql? 1
       return print_message(2) if is_right_triangle?
 
       print_message(3)
+    end
+
+    def transform_triangle_data
+      self.transform_triangle_data ||= self.triangle_data.map {|_key,value| value.to_f}.sort
     end
 
     def is_right_triangle?
