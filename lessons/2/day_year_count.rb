@@ -2,8 +2,6 @@ class DayYearCount
   class << self
     attr_accessor :day_input, :month_input, :year_input
 
-    MONTH_DAYS = [31, [28,29], 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-
     def call
       ask_day_month_year
       show_day_count
@@ -23,10 +21,10 @@ class DayYearCount
 
 
     def show_day_count
+      month_days = [31, [28,29], 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
       #leap year check
-      MONTH_DAYS[1] = self.year_input % 4 == 0 ? MONTH_DAYS[1][-1] : MONTH_DAYS[1][0]
-
-      day_in_year_count = MONTH_DAYS.take(self.month_input-1).sum + self.day_input
+      month_days[1] = self.year_input % 4 == 0 ? month_days[1][-1] : month_days[1][0]
+      day_in_year_count = month_days.take(self.month_input-1).sum + self.day_input
 
       puts "There are #{day_in_year_count} from start of your year"
     end
