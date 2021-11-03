@@ -49,7 +49,7 @@ class HashAndArray
     def show_vowel_number
       english_alphabet = ('a'..'z').to_a
       english_vowels = %w(a e i o u y)
-      vowels_hash = Hash.new
+      vowels_hash = {}
 
       english_alphabet.each_with_index do |letter, index|
         vowels_hash[letter] = index + 1 if english_vowels.include?(letter)
