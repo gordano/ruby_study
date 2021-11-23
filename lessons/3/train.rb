@@ -1,13 +1,15 @@
 class Train
   attr_reader :train_number, :train_type, :speed, :wagons_count, :route
 
-  def initialize(train_number, route, train_type='cargo', wagons_count=100)
+  def initialize(train_number, train_type='cargo', wagons_count=100)
     @train_number = train_number
     @train_type = train_type # 'cargo' || 'coach'
     @wagons_count = wagons_count
-    @route =  route
-    @history_route_station = [0]
     @speed = 0
+  end
+
+  def set_route(route)
+    @route ||= route
     parking_on_station
   end
 
@@ -32,38 +34,64 @@ class Train
   end
 
   def move_next_station
-    if route.stations[@history_route_station[-1] + 1]
+    return unless route
+
+    if next_station
       away_from_station
-      @history_route_station.insert(-1 , @history_route_station[-1] +1)
+      @current_station = next_station
       parking_on_station
     end
   end
 
   def move_previous_station
-    if @route.stations[@history_route_station[-1] - 1]
+    return unless route
+
+    if previous_station
       away_from_station
-      @history_route_station.insert(-1 , @history_route_station[-1] - 1)
+      @current_station = previous_station
       parking_on_station
     end
   end
 
+  def current_station_index
+    return unless route
+
+    route.stations.index(current_station)
+  end
+
   def current_station
-    puts route.stations[@history_route_station[-1]].title
+    return unless route
+
+    @current_station ||= route.stations.first
   end
 
   def previous_station
-    puts route.stations[@history_route_station[-2]].title
+    return unless route
+    return current_station if route.stations.first.eql? current_station
+
+    route.stations[current_station_index.pred]
+  end
+
+  def next_station
+    return unless route
+    return current_station if route.stations.last.eql? current_station
+
+    route.stations[current_station_index.next]
   end
 
   def parking_on_station
+    return unless route
+
     stop
-    station = route.stations[@history_route_station[-1]]
+    station = current_station
     station.add_train(self)
   end
 
   def away_from_station
+    return unless route
+
     full_gas
-    station = route.stations[@history_route_station[-1]]
+    station = current_station
     station.send_train(self)
   end
 end

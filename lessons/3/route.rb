@@ -8,12 +8,12 @@ class Route
   def add_middle_station(station)
     return if station == stations.first || station == stations.last
 
-    @stations.insert(-2, station)
+    stations.insert(-2, station)
   end
 
   def remove_middle_station(station)
     return if station == stations.first || station == stations.last
 
-    @stations.delete_if{|route_station| route_station == station}
+    stations.delete station
   end
 end
