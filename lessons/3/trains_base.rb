@@ -7,6 +7,10 @@ class TrainsBase
     @wagons = []
   end
 
+  def title
+    train_number
+  end
+
   def type
     self.class::TYPE
   end

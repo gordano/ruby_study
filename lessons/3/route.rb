@@ -5,6 +5,10 @@ class Route
     @stations = [fist_station, last_station]
   end
 
+  def title
+    stations.map(&:title).join('->')
+  end
+
   def add_middle_station(station)
     return if station == stations.first || station == stations.last
 

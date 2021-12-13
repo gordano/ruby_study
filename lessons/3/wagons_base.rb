@@ -1,6 +1,10 @@
 class WagonsBase
   attr_reader :train
 
+  def title
+    "#{type}-||-#{train&.title}"
+  end
+
   def type
     self.class::TYPE
   end
