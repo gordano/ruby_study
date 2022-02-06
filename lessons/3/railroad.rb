@@ -32,11 +32,10 @@ class Railroad
   def info
     20.times { puts "\n" }
     puts "\n---------RIAL OBJECTS-------------"
-    puts "Станции: #{stations.map(&:title)}"
-    puts "Маршруты: #{routes.map(&:title)}"
-    puts "Поезда: #{trains.map(&:title)}"
-    puts "Вагоны: #{wagons.map(&:title)}"
+    puts "Stations: #{stations.map(&:title)}"
+    puts "Routes: #{routes.map(&:title)}"
+    puts "Trains: #{trains.map(&:title)}"
+    puts "Wagons: #{wagons.map(&:title)}"
     puts "------------------------------------\n"
-    main_menu
   end
 end

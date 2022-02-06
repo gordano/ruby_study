@@ -1,9 +1,16 @@
 module Railroads
   module Actions
     def action_main
-      dialog = load_constant "DIALOG_MAIN"
-      answer = get_answer(dialog).to_i
-      send dialog[:methods][answer.pred]
+      loop do
+        dialog = load_constant "DIALOG_MAIN"
+        answer = get_answer(dialog).to_i
+
+        break if send(dialog[:methods][answer.pred]).eql?('EXIT')
+      end
+    end
+
+    def action_to_main
+      #DO NOTHING
     end
 
     def action_create_objects
@@ -124,6 +131,7 @@ module Railroads
 
     def action_exit
       puts "---------- Goodbye ----------"
+      'EXIT'
     end
 
     def load_constant(dialog)

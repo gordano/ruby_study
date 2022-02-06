@@ -6,16 +6,12 @@ module Railroads
           :action_create_objects,
           :action_ask_object_do,
           :action_show_object_info,
-          :action_show_all_info,
-          :action_main,
           :action_exit
         ],
         texts: [
-          'Создать станцию, маршрут, поезд или вагон',
-          'Операцию над объектом',
-          'Вывод информации объекта',
-          'Просмотр всех объектов',
-          'В ГЛАВНОЕ МЕНЮ',
+          'Create a station, route, train or wagon',
+          'Operation on an object',
+          'Object information display',
           'EXIT'
         ]
       }
@@ -27,37 +23,37 @@ module Railroads
           :action_create_route,
           :action_create_train,
           :action_create_wagon,
-          :action_main
+          :action_to_main
         ],
         texts: [
-          'Создать станцию',
-          'Создать маршрут',
-          'Создать поезд',
-          'Создать вагон',
-          'В ГЛАВНОЕ МЕНЮ'
+          'Create station',
+          'Create route',
+          'Create a train',
+          'Create wagon',
+          'TO MAIN MENU'
         ]
       }
 
     DIALOG_CREATE_STATION =
       {
-        texts: ['Введите название станции:']
+        texts: ['Enter station name:']
       }
 
     DIALOG_CREATE_ROUTE =
       {
-        texts: ['Введите номера Начальной и Конечной станций через запятую:']
+        texts: ['Enter numbers of Start and End stations separated by commas:']
       }
 
     DIALOG_CREATE_TRAIN =
       {
         texts: [
-          "Тип 1-Пассажирский\nТип 2-Грузовой\nВведите номер типа поезда, и название поезда через запятую:"]
+          "Type 1-Passenger\nType 2-Freight\nEnter the train type number, and the train name separated by commas:"]
       }
 
     DIALOG_CREATE_WAGON =
       {
         texts: [
-          "Тип 1-Пассажирский\nТип 2-Грузовой\nВведите номер типа вагона:"]
+          "Type 1-Passenger\nType 2-Freight\nEnter wagon type number:"]
       }
 
     DIALOG_METHODS_OBJECTS =
@@ -69,71 +65,71 @@ module Railroads
           :action_add_wagon_to_train,
           :action_remove_wagon_from_train,
           :action_move_train,
-          :action_main
+          :action_to_main
         ],
         texts: [
-          'Добавить станцию к маршруту',
-          'Удалить станцию из маршрута',
-          'Назначить маршрут поезду',
-          'Прицепить вагон к поезду',
-          'Отцепить вагон от поезда',
-          'Отправить поезд вперёд или назад',
-          'В ГЛАВНОЕ МЕНЮ'
+          'Add station to route',
+          'Remove station from route',
+          'Assign route to train',
+          'Hitch the wagon to the train',
+          'Unhook the car from the train',
+          'Send the train forward or backward',
+          'TO MAIN MENU'
         ]
       }
 
     DIALOG_ADD_STATION_TO_ROUTE =
       {
         texts: [
-          "Введите номер маршрута и номер станции через зяпятую:"]
+          "Enter route number and station number separated by a comma:"]
       }
 
     DIALOG_REMOVE_STATION_FROM_ROUTE =
       {
         texts: [
-          "Введите номер маршрута и номер станции через зяпятую:"]
+          "Enter route number and station number separated by a comma:"]
       }
 
     DIALOG_ADD_ROUTE_TO_TRAIN =
       {
         texts: [
-          "Введите номер поезда и номер маршрута через зяпятую:"]
+          "Enter train number and route number separated by a comma:"]
       }
 
     DIALOG_ADD_WAGON_TO_TRAIN =
       {
         texts: [
-          "Введите номер поезда и номер вагона через зяпятую:"]
+          "Enter train number and carriage number separated by a comma:"]
       }
 
     DIALOG_REMOVE_WAGON_FROM_TRAIN =
       {
         texts: [
-          "Введите номер вагона:"]
+          "Enter car number:"]
       }
 
     DIALOG_ACTION_MOVE_TRAIN =
       {
         texts: [
-          "Введите номер поезда и через запятую направление(1-вперёд, 0-назад):"]
+          "Enter train number and direction separated by commas (1-forward, 0-backward):"]
       }
 
     DIALOG_SHOW_OBJECT_INFO =
       {
         methods:[
           :action_show_trains_on_station,
-          :action_main
+          :action_to_main
         ],
         texts: [
-          'Посмотреть список поездов на станции',
-          'В ГЛАВНОЕ МЕНЮ'
+          'View the list of trains at the station',
+          'TO MAIN MENU'
         ]
       }
 
     DIALOG_SHOW_TRAINS_ON_STATION =
       {
         texts: [
-          "Введите номер станции:"]
+          "Enter station number:"]
       }
   end
 end

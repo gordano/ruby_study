@@ -2,7 +2,7 @@ module Railroads
   module Helpers
     def show_object_title_in(rail_object)
       rail_object.each_with_index do |item, index|
-        puts "Номер #{index.next}, #{item.title}"
+        puts "Number #{index.next}, #{item.title}"
       end
     end
 
@@ -11,7 +11,7 @@ module Railroads
         puts dialog_menu.first
       else
         dialog_menu.each_with_index do |text, index|
-          puts "Введите #{index.next}, #{text}"
+          puts "Please press #{index.next}, #{text}"
         end
       end
     end
