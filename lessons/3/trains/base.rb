@@ -10,6 +10,7 @@ module Trains
 
     class << self
       def all
+        # ObjectSpace.each_object(self)
         @@trains
       end
 

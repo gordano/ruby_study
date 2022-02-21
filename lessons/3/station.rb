@@ -4,6 +4,7 @@ class Station
   @@stations = []
 
   def self.all
+    # ObjectSpace.each_object(self)
     @@stations
   end
 
