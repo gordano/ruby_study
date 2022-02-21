@@ -16,9 +16,9 @@ module Railroads
 
       train = case train_params.first
               when '1'
-                train = TrainsPassenger.new(train_params.last)
+                train = Trains::Passenger.new(train_params.last)
               when '2'
-                train = TransCargo.new(train_params.last)
+                train = Trans::Cargo.new(train_params.last)
               end
       trains << train if train
       info
@@ -27,9 +27,9 @@ module Railroads
     def create_wagon(answer)
       wagon = case answer
               when '1'
-                train = WagonsPassenger.new
+                train = Wagons::Passenger.new
               when '2'
-                train = WagonsCargo.new
+                train = Wagons::Cargo.new
               end
       wagons << wagon if wagon
       info

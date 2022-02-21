@@ -16,13 +16,13 @@ class Railroad
 
     routes << Route.new(stations[0], stations[2])
 
-    trains << TrainsCargo.new('TrainCargo')
-    trains << TrainsPassenger.new('PassangerCargo')
+    trains << Trains::Cargo.new
+    trains << Trains::Passenger.new('PassangerCargo')
 
     trains.first&.set_route(routes.first)
 
-    wagons << WagonsCargo.new
-    wagons << WagonsPassenger.new
+    wagons << Wagons::Cargo.new
+    wagons << Wagons::Passenger.new
   end
 
   def main_menu

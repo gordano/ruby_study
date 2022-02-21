@@ -66,16 +66,16 @@ class Tests
     @route_moscow_tver_piter = Route.new(station_moscow, station_piter)
 
     #CREATE TRAINS
-    @train_mp_cargo = TrainsCargo.new('Train mp cargo')
-    @train_mtp_passenger = TrainsPassenger.new('Train mtp passenger')
+    @train_mp_cargo = Trains::Cargo.new('Train mp cargo')
+    @train_mtp_passenger = Trains::Passenger.new('Train mtp passenger')
 
     #CREAT WAGONS
-    @wagon_cargo_1 = WagonsCargo.new
-    @wagon_cargo_2 = WagonsCargo.new
-    @wagon_cargo_3 = WagonsCargo.new
+    @wagon_cargo_1 = Wagons::Cargo.new
+    @wagon_cargo_2 = Wagons::Cargo.new
+    @wagon_cargo_3 = Wagons::Cargo.new
 
-    @wagon_passenger_1 = WagonsPassenger.new
-    @wagon_passenger_2 = WagonsPassenger.new
-    @wagon_passenger_3 = WagonsPassenger.new
+    @wagon_passenger_1 = Wagons::Passenger.new
+    @wagon_passenger_2 = Wagons::Passenger.new
+    @wagon_passenger_3 = Wagons::Passenger.new
   end
 end
